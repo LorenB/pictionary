@@ -13,7 +13,12 @@ io.on('connection', function (socket) {
     socket.on('draw', function(msg) {
         // console.log(msg);
         io.emit('draw', msg);
-  });    
+    });
+    socket.on('guess', function(msg) {
+        // console.log(msg);
+        socket.broadcast.emit('guess', msg);
+    });
+  
 });
 
 server.listen(8080);
